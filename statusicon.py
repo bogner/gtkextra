@@ -38,12 +38,12 @@ class Renderer(object):
 
         number_height = max(map(lambda x: x.get_height(), digits))
         number_width = sum(map(lambda x: x.get_width(), digits))
-        h_scale = (2.0 * canvas_height) / (3.0 * number_height)
+        h_scale = (1.0 * canvas_height) / (2.0 * number_height)
         w_scale = (2.0 * canvas_width) / (3.0 * number_width)
         scale = min(h_scale, w_scale)
 
         offset_x = (canvas_width - int(number_width * scale)) / 2
-        offset_y = (canvas_height - int(number_height * scale)) / 2
+        offset_y = 3 * (canvas_height - int(number_height * scale)) / 8
         for digit in digits:
             digit.composite(canvas, 0, 0, canvas_width, canvas_height,
                             offset_x, offset_y, scale, scale,
